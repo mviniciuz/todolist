@@ -2,6 +2,8 @@ import { View, Image, Text } from "react-native";
 
 import { styles } from './styles';
 
+import { Logo } from '../../components/Logo';
+
 
 export function Home(){
   
@@ -9,6 +11,7 @@ export function Home(){
  
     <View style={styles.container} >
       <View style={styles.header}>
+        <Logo/>
               
      
       </View>    
