@@ -1,4 +1,7 @@
 import {SvgXml} from 'react-native-svg';
+import { Button } from 'react-native';
+
+import xmlteste from '../../../assets/Logo.svg';
 
 export function Logo(){
 
@@ -26,9 +29,13 @@ export function Logo(){
   </defs>
   </svg>
   `
+  
+  function pressButton(){
 
+  }
   return(
-    <SvgXml xml={logoXml}></SvgXml> 
+    <Button>teste</Button>
+
 
   )
 
