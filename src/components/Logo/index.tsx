@@ -1,9 +1,6 @@
 import {SvgXml} from 'react-native-svg';
-import { Button } from 'react-native';
 
-import xmlteste from '../../../assets/Logo.svg';
-
-export function Logo(){
+export function Logo({width, height}){
 
   const logoXml = `<svg width="111" height="32" viewBox="0 0 111 32" fill="none" xmlns="http://www.w3.org/2000/svg">
   <g clip-path="url(#clip0_401_146)">
@@ -28,15 +25,10 @@ export function Logo(){
   </clipPath>
   </defs>
   </svg>
-  `
-  
-  function pressButton(){
+  `  
 
-  }
   return(
-    <Button>teste</Button>
-
-
+    <SvgXml xml={logoXml} width={width} height={height}/>
   )
 
 }
