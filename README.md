@@ -7,10 +7,12 @@ This application was built to help people keep their to-do lists well organized,
 
 ### 📋 Prerequisites
 
-This project was developed in typescript with react-native and expo, to run it you must have node.js installed on your computer.
+This project was developed in typescript with react-native and expo, to run it you must have node.js and any emulator installed on your computer.
 
 ```
 Install NODE.JS
+Install Emulator
+
 ```
 
 ### 🔧 to install
