@@ -17,8 +17,16 @@ export const styles = StyleSheet.create({
     flex:8,
     justifyContent: 'flex-start',    
     color: '#f2f2f2',
-    fontSize: 14,
+    fontSize: 16,
     padding:5
+  },
+  textDone:{
+    flex:8,
+    justifyContent: 'flex-start',    
+    color: '#f2f2f2',
+    fontSize: 16,
+    padding:5,
+    textDecorationLine:'line-through',
   },
   buttonDelete: {
     flex:2,

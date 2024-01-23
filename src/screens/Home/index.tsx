@@ -13,18 +13,37 @@ export function Home(){
   const [taskList, setTaskList] = useState([]);
   const [textTask, setTextTask] = useState('');
 
-  function handleAddTask(data:string){  
-    setTaskList((prevState) => [...prevState, {name: data, check: false}])
+  function handleAddTask(data:string){
+    
+    const exists = taskList.filter(item=> item.name === data);
+    if (exists.length > 0){   
+      return Alert.alert('Error',`Task exists ${data}`);      
+    }
+
+    setTaskList((prevState) => [...prevState, {name: data, check: false}]);
+    setTextTask('');
   }
 
   function handleDeleteTask(data){
-    setTaskList((prevState) => prevState.filter(item => item.name !== data.name)) 
+    Alert.alert('Deleting tasks', 'Do you want exclude task?', [
+      {
+        text: "yes",
+        onPress: ()=>  setTaskList((prevState) => prevState.filter(item => item.name !== data.name)) 
+      },
+      {
+        text: "No",
+      
+      }
+    ])
+
+   
   }
 
   function handleCheckTask(data){
-    setTaskList((prevState) => prevState.find(item => item.name === data.name))
-
-    
+    const index = taskList.findIndex(item => item.name === data.name);    
+    let tasks = [...taskList];
+    tasks[index].check = !tasks[index].check;
+    setTaskList(tasks);  
   }
     
   return(
@@ -42,12 +61,16 @@ export function Home(){
         <View style={styles.list}>
           <View style={styles.listHeader}>
             <View style={styles.itemHeader}>
-              <Text style={styles.textTasks}>{'Created'}</Text>
-              <Text style={styles.countTasks}>{'02'}</Text>
+              <Text style={styles.textTasks}>{'Tasks'}</Text>
+              <Text style={styles.countTasks}>{
+                taskList.length
+              }</Text>
             </View>
             <View style={styles.itemHeader}> 
               <Text style={styles.textDone}>{'Doned'}</Text>
-              <Text style={styles.countTasks}>{'02'}</Text>           
+              <Text style={styles.countTasks}>{
+                taskList.filter(item=>item.check === true).length
+              }</Text>           
             </View>         
 
           </View>
@@ -57,7 +80,7 @@ export function Home(){
             renderItem={({item}) => <ItemTask
              item={item}
              onDelete={() => handleDeleteTask(item)}
-             onCheck={() => handleCheckTask(item)}
+             onCheck={() => handleCheckTask(item)}             
           />}
           
           />          
