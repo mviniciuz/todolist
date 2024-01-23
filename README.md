@@ -2,6 +2,8 @@
 
 This application was built to help people keep their to-do lists well organized, with it you can organize your to-do and completed tasks.
 
+<Img src="assets/todolist2.svg"/>
+
 
 ### 📋 Prerequisites
 
